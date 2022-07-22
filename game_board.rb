@@ -27,12 +27,12 @@ class GameBoard
   end
 
   def move_interpreter(move)
-    if move[0].nil?
-      ' '
-    elsif move[0] == 0
+    if move[0] == 10
       'X'
-    else
+    elsif move[0] == 30
       'O'
+    else
+      ' '
     end
   end
 
