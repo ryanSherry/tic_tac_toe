@@ -11,16 +11,11 @@ class GameBoard
     row = 1
     game_board_length = 9
 
-    print '  '
-    print 1
-    print ' '
-    print 2
-    print ' '
-    print 3
-    puts ''
+    print_columns(3)
 
     while counter < game_board_length do
       print row
+      print ' '
       moves[counter..counter+2].each do |value|
         print '[' + move_interpreter(value) + ']'
       end
@@ -38,5 +33,14 @@ class GameBoard
     else
       'O'
     end
+  end
+
+  def print_columns(number)
+    print '   '
+    (1..number).each do |n|
+    print n
+    print '  '
+    end
+    puts ''
   end
   end
