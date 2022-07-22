@@ -10,6 +10,7 @@ class GameBoard
     counter = 0
     row = 1
     game_board_length = 9
+    counter_interval = Math.sqrt(game_board_length)
 
     print_columns(3)
 
@@ -19,7 +20,7 @@ class GameBoard
       moves[counter..counter+2].each do |value|
         print '[' + move_interpreter(value) + ']'
       end
-      counter += 3
+      counter += counter_interval
       puts ''
       row += 1
     end
