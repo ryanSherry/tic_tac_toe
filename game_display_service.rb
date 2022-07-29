@@ -23,8 +23,15 @@ class GameDisplayService
   end
 
   def print_player_instructions(player)
-    puts "Player #{player}, please make a move. Enter your move with the row number " +
-           "first followed by the column number i.e. 1,3"
+    puts "Player #{player}, please make a move. Enter row and column like this i.e. 2,1"
+  end
+
+  def winning_message(player)
+    puts "Player #{player},congratulations, you won!!! Would you like to play again? (Yes or no)"
+  end
+
+  def goodbye
+    puts "Goodbye for now!"
   end
 
   private

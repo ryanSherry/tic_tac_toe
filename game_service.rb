@@ -1,6 +1,8 @@
 class GameService
   PLAYER_1 = 1
   PLAYER_2 = 20
+  PLAYER_1_TURN_VALUE = 1
+  PLAYER_2_TURN_VALUE = 2
 
   def store_answer(stored_moves, new_move, player)
     #error if outside of game board or move already made
@@ -32,6 +34,10 @@ class GameService
     else
       return nil
     end
+  end
+
+  def switch_player(player)
+    player == PLAYER_1_TURN_VALUE ? PLAYER_2_TURN_VALUE : PLAYER_1_TURN_VALUE
   end
 
   private
