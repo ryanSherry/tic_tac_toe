@@ -1,4 +1,6 @@
 class GameService
+  PLAYER_1 = 1
+  PLAYER_2 = 20
 
   def store_answer(stored_moves, new_move, player)
     #error if outside of game board or move already made
@@ -38,7 +40,7 @@ class GameService
   end
 
   def player_value(player)
-    player = 1 ? 1 : 20
+    player == PLAYER_1 ? PLAYER_1 : PLAYER_2
   end
 
   def calculate_move_location(stored_moves, new_move)

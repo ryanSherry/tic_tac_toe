@@ -1,4 +1,6 @@
 class GameDisplayService
+  PLAYER_1 = 1
+  PLAYER_2 = 20
 
   def display_gameboard(stored_moves)
     counter = 0
@@ -20,11 +22,16 @@ class GameDisplayService
     end
   end
 
+  def print_player_instructions(player)
+    puts "Player #{player}, please make a move. Enter your move with the row number " +
+           "first followed by the column number i.e. 1,3"
+  end
+
   private
   def move_interpreter(move)
-    if move[0] == 10
+    if move[0] == PLAYER_1
       'X'
-    elsif move[0] == 30
+    elsif move[0] == PLAYER_2
       'O'
     else
       ' '
