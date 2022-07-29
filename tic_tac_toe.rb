@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
+require './game_board'
+require './game_display_service'
+require './game_service'
+
 class TicTacToe
   #store answers in data structure
   # create game board

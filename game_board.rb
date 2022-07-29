@@ -1,9 +1,14 @@
-public class GameBoard
-         @stored_moves = [
-           [],[],[],
-           [],[],[],
-           [],[],[]
-         ]
+#!/usr/bin/env ruby
+class GameBoard
+  attr_reader :stored_moves
+
+  def initialize
+    @stored_moves = [
+      [],[],[],
+      [],[],[],
+      [],[],[]
+    ]
+  end
 
   def get_gameboard_length()
     @stored_moves.length

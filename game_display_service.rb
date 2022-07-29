@@ -2,18 +2,22 @@ class GameDisplayService
   PLAYER_1 = 1
   PLAYER_2 = 20
 
+  def initialize
+    super
+  end
+
   def display_gameboard(stored_moves)
     counter = 0
     row = 1
     game_board_length = stored_moves.get_gameboard_length
     counter_interval = stored_moves.get_gameboard_interval
 
-    print_columns(counter)
+    print_columns(counter_interval)
 
     while counter < game_board_length do
       print row
       print ' '
-      stored_moves[counter..counter+2].each do |value|
+      stored_moves.stored_moves[counter..counter+2].each do |value|
         print '[' + move_interpreter(value) + ']'
       end
       counter += counter_interval
