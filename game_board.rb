@@ -15,7 +15,11 @@ class GameBoard
   end
 
   def get_gameboard_interval()
-    Math.sqrt(@stored_moves.length)
+    Math.sqrt(@stored_moves.length).to_i
+  end
+
+  def get_stored_moves
+    @stored_moves
   end
 
   end

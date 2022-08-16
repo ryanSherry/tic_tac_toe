@@ -21,6 +21,7 @@ class TicTacToe
   #print player instructions
   @game_display_service.print_player_instructions(@player_turn)
   #get input from user
+
   @new_move = gets
   # check if move has been made (note: add error checking)
     # if yes, ask user to make different move
@@ -37,7 +38,7 @@ class TicTacToe
 
     if @play_again == 'yes'
       @play_again = true
-      @player_turn = 1
+      @player_turn = @game_service.switch_player(@player_turn)
       @stored_moves = GameBoard.new
     else
       @play_again = false
