@@ -28,7 +28,7 @@ class TicTacToe
     # if no, update game board and proceed
   @game_service.store_answer(@stored_moves, @new_move, @player_turn)
   # print game board
-  @game_display_service.display_gameboard(@stored_moves)
+  # @game_display_service.display_gameboard(@stored_moves)
   # check for win
   @win = !@game_service.check_for_win(@stored_moves).nil?
   if @win

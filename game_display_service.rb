@@ -40,9 +40,9 @@ class GameDisplayService
 
   private
   def move_interpreter(move)
-    if move[0] == PLAYER_1
+    if move == PLAYER_1
       'X'
-    elsif move[0] == PLAYER_2
+    elsif move == PLAYER_2
       'O'
     else
       ' '
