@@ -22,7 +22,7 @@ class TicTacToe
   @game_display_service.print_player_instructions(@player_turn)
   #get input from user
 
-  @new_move = gets
+  @new_move = gets.chomp
   # check if move has been made (note: add error checking)
     # if yes, ask user to make different move
     # if no, update game board and proceed
@@ -33,12 +33,12 @@ class TicTacToe
   @win = !@game_service.check_for_win(@stored_moves).nil?
   if @win
     # if win, print winning message and ask if they want to play again
-    @game_display_service.winning_message(player)
-    @play_again = gets
+    @game_display_service.winning_message(@player_turn)
+    @play_again_answer = gets.chomp
 
-    if @play_again == 'yes'
+    if @play_again_answer.downcase == 'yes' || @play_again_answer.downcase == 'y'
       @play_again = true
-      @player_turn = @game_service.switch_player(@player_turn)
+      @player_turn = @player_1_value
       @stored_moves = GameBoard.new
     else
       @play_again = false

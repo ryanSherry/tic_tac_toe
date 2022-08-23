@@ -9,6 +9,7 @@ class GameService
     @new_move = new_move.split(',').map(&:to_i)
     raise 'Outside of game board' unless (@new_move[0] <= stored_moves.get_gameboard_interval &&
       @new_move[1] <= stored_moves.get_gameboard_interval)
+    p stored_moves.get_stored_moves
     raise 'Move already made' unless can_move?(stored_moves.get_stored_moves[calculate_move_location(stored_moves, @new_move)])
 
     save_move(stored_moves, @new_move, player)
@@ -60,6 +61,6 @@ class GameService
   end
 
   def save_move(stored_moves, new_move, player)
-    stored_moves.get_stored_moves[calculate_move_location(stored_moves, new_move)] = player_value(player)
+    stored_moves.get_stored_moves[calculate_move_location(stored_moves, new_move)][0] = player_value(player)
   end
 end
