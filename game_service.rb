@@ -6,13 +6,16 @@ class GameService
 
   def store_answer(stored_moves, new_move, player)
     #error if outside of game board or move already made
-    @new_move = new_move.split(',').map(&:to_i)
-    raise 'Outside of game board' unless (@new_move[0] <= stored_moves.get_gameboard_interval &&
-      @new_move[1] <= stored_moves.get_gameboard_interval)
-    p stored_moves.get_stored_moves
-    raise 'Move already made' unless can_move?(stored_moves.get_stored_moves[calculate_move_location(stored_moves, @new_move)])
-
-    save_move(stored_moves, @new_move, player)
+      @new_move = new_move.split(',').map(&:to_i)
+      raise 'Outside of game board' unless (@new_move[0] <= stored_moves.get_gameboard_interval &&
+        @new_move[1] <= stored_moves.get_gameboard_interval)
+        if can_move?(stored_moves.get_stored_moves[calculate_move_location(stored_moves, @new_move)])
+          save_move(stored_moves, @new_move, player)
+        else
+          puts 'Move already made, make a different move, try again'
+          @new_answer = gets.chomp
+          store_answer(stored_moves, @new_answer, player)
+        end
   end
 
   def check_for_win(stored_moves)
@@ -40,6 +43,10 @@ class GameService
 
   def switch_player(player)
     player == PLAYER_1_TURN_VALUE ? PLAYER_2_TURN_VALUE : PLAYER_1_TURN_VALUE
+  end
+
+  def same_player(player)
+    player
   end
 
   private
