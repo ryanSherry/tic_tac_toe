@@ -34,6 +34,10 @@ class GameDisplayService
     puts "Player #{player.to_s}, congratulations, you won!!! Would you like to play again? (Yes or no)"
   end
 
+  def tie_message
+    puts "This game ended in a tie. Would you like to play again? (Yes or no)"
+  end
+
   def goodbye
     puts "Goodbye for now!"
   end

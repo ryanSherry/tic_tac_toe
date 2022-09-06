@@ -29,6 +29,11 @@ class GameService
     column_3 = [stored_moves.get_stored_moves[2][0], stored_moves.get_stored_moves[5][0], stored_moves.get_stored_moves[8][0]].compact.sum
     diag_1 = [stored_moves.get_stored_moves[0][0], stored_moves.get_stored_moves[4][0], stored_moves.get_stored_moves[8][0]].compact.sum
     diag_2 = [stored_moves.get_stored_moves[2][0], stored_moves.get_stored_moves[4][0], stored_moves.get_stored_moves[6][0]].compact.sum
+    tie = [
+      stored_moves.get_stored_moves[0][0], stored_moves.get_stored_moves[1][0], stored_moves.get_stored_moves[2][0],
+      stored_moves.get_stored_moves[3][0], stored_moves.get_stored_moves[4][0], stored_moves.get_stored_moves[5][0],
+      stored_moves.get_stored_moves[6][0], stored_moves.get_stored_moves[7][0], stored_moves.get_stored_moves[8][0]
+    ].compact
 
     possible_wins = [row_1, row_2, row_3, column_1, column_2, column_3, diag_1, diag_2]
 
@@ -36,6 +41,8 @@ class GameService
       return :player_1
     elsif possible_wins.include?(60)
       return :player_2
+    elsif tie.length == 9
+      return :tie
     else
       return nil
     end
