@@ -35,6 +35,7 @@ class TicTacToe
   @tie = @game_service.check_for_win(@stored_moves) == :tie
   if @win
     # if win, print winning message and ask if they want to play again
+    @game_display_service.display_gameboard(@stored_moves)
     @game_display_service.winning_message(@player_turn)
     @play_again_answer = gets.chomp
     if @play_again_answer.downcase == 'yes' || @play_again_answer.downcase == 'y'
@@ -46,6 +47,7 @@ class TicTacToe
       @game_display_service.goodbye
     end
   elsif @tie
+    @game_display_service.display_gameboard(@stored_moves)
     @game_display_service.tie_message
     @play_again_answer = gets.chomp
     if @play_again_answer.downcase == 'yes' || @play_again_answer.downcase == 'y'
