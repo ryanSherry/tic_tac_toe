@@ -73,6 +73,20 @@ RSpec.describe 'test game service', :type => :request do
     end
   end
 
+  describe 'switch player' do
+    it 'switches player' do
+      expect(@gameservice.switch_player(1)).to eq(2)
+      expect(@gameservice.switch_player(2)).to eq(1)
+    end
+  end
+
+  describe 'same player' do
+    it 'returns same player' do
+      expect(@gameservice.same_player(1)).to eq(1)
+      expect(@gameservice.same_player(2)).to eq(2)
+    end
+  end
+
   describe 'check for tie' do
     it 'checks for tie' do
       self.simulate_tie(
