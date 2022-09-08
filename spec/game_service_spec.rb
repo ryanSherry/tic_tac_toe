@@ -97,6 +97,18 @@ RSpec.describe 'test game service', :type => :request do
     end
   end
 
+  describe 'check for valid data' do
+    it 'checks that user data is in correct format' do
+      expect(@gameservice.user_input_validity_checker('1,3')).to be(true)
+      expect(@gameservice.user_input_validity_checker('1,a')).to be(false)
+      expect(@gameservice.user_input_validity_checker('a,1')).to be(false)
+      expect(@gameservice.user_input_validity_checker('a,a')).to be(false)
+      expect(@gameservice.user_input_validity_checker('11')).to be(false)
+      expect(@gameservice.user_input_validity_checker('hello')).to be(false)
+      expect(@gameservice.user_input_validity_checker('1j,3')).to be(false)
+    end
+  end
+
   private def simulate_win(stored_moves, move_1, move_2, move_3, player)
   @gameservice.store_answer(stored_moves, move_1, player)
   @gameservice.store_answer(stored_moves, move_2, player)
