@@ -56,6 +56,10 @@ class GameService
     player
   end
 
+  def user_input_validity_checker(input)
+    input =~ /[0-9][,][0-9]/
+  end
+
   private
   def can_move?(value)
     value.empty?

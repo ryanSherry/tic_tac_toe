@@ -30,6 +30,10 @@ class GameDisplayService
     puts "Player #{player}, please make a move. Enter row and column like this i.e. 2,1"
   end
 
+  def print_player_try_again(player)
+    puts "Player #{player}, incorrect format, try again. Enter row and column like this i.e. 2,1"
+  end
+
   def winning_message(player)
     puts "Player #{player.to_s}, congratulations, you won!!! Would you like to play again? (Yes or no)"
   end

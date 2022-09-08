@@ -23,6 +23,13 @@ class TicTacToe
   #get input from user
 
   @new_move = gets.chomp
+  @valid_move = @game_service.user_input_validity_checker(@play_again_answer)
+    while !@valid_move
+      @game_display_service.print_player_try_again(@player)
+      @play_again_answer = gets.chomp
+      @valid_move = @game_service.user_input_validity_checker(@play_again_answer)
+      @new_move = @play_again_answer
+    end
   # check if move has been made (note: add error checking)
     # if yes, ask user to make different move
     # if no, update game board and proceed
